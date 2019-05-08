@@ -1,0 +1,33 @@
+server:
+  port: 12010
+  context-path: /field
+  compression:
+    enabled: true
+  tomcat:
+    uri-encoding: UTF-8
+spring:
+  application:
+    name: chinese.english.mapping
+  datasource:
+    dataAlias: master,hypotaxis
+    master:
+      type: com.alibaba.druid.pool.DruidDataSource
+      url: jdbc:mysql://localhost:3306/platform_hm?serverTimezone=Asia/Shanghai&allowMultiQueries=true&characterEncoding=utf8&useUnicode=true&verifyServerCertificate=false&useSSL=false&requireSSL=false
+      username: root
+      password: '23990308'
+      driverClassName: com.mysql.cj.jdbc.Driver
+    hypotaxis:
+      type: com.alibaba.druid.pool.DruidDataSource
+      url: jdbc:mysql://localhost:3306/platform.table.field.mapping?serverTimezone=Asia/Shanghai&allowMultiQueries=true&characterEncoding=utf8&useUnicode=true&verifyServerCertificate=false&useSSL=false&requireSSL=false
+      username: root
+      password: '23990308'
+      driverClassName: com.mysql.cj.jdbc.Driver
+mybatis:
+  type-aliases-package: com.platform.field.mapping.entity
+  mapper-locations: classpath*:mapper/*Mapper.xml
+  config-location: classpath:mybatis-config.xml
+logging:
+  level:
+    com.netflix: warn
+    org.springframework.cloud: warn
+    com.platform: debug
