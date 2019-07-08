@@ -1,6 +1,6 @@
 package platform.common.base.core.exception;
 
-import platform.common.base.core.status.Status;
+import org.springframework.http.HttpStatus;
 
 public class ServiceException extends RuntimeException {
 
@@ -8,13 +8,13 @@ public class ServiceException extends RuntimeException {
 	private static final long serialVersionUID = 1L;
 
 	private String message;
-	private Status status;
+	private HttpStatus status;
 
-	public ServiceException(Status status, Throwable throwable) {
+	public ServiceException(HttpStatus status, Throwable throwable) {
 		this.status = status;
 	}
 
-	public ServiceException(Status status, Throwable throwable, String message) {
+	public ServiceException(HttpStatus status, Throwable throwable, String message) {
 		this.status = status;
 		this.message = message;
 	}
@@ -27,11 +27,11 @@ public class ServiceException extends RuntimeException {
 		this.message = message;
 	}
 
-	public Status getStatus() {
+	public HttpStatus getStatus() {
 		return status;
 	}
 
-	public void setStatus(Status status) {
+	public void setStatus(HttpStatus status) {
 		this.status = status;
 	}
 

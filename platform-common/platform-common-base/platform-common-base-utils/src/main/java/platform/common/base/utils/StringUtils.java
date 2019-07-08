@@ -14,41 +14,7 @@ import java.util.zip.GZIPOutputStream;
  * @author kangjin.zhao èμμ
  * @date 2019年4月9日
  */
-public class StringUtils {
-
-	/**
-	 * 
-	 * Title: isBlank Description:
-	 * 
-	 * @author kangjin.zhao èμμ
-	 * @date 2019年4月9日
-	 * @param string
-	 * @return
-	 */
-	public static boolean isBlank(String string) {
-		boolean flag = false;
-		if (null == string || string.trim().equals("")) {
-			flag = true;
-		}
-		return flag;
-	}
-
-	/**
-	 * 
-	 * Title: isNotBlank Description:
-	 * 
-	 * @author kangjin.zhao èμμ
-	 * @date 2019年4月9日
-	 * @param string
-	 * @return
-	 */
-	public static boolean isNotBlank(String string) {
-		boolean flag = false;
-		if (null != string && !string.trim().equals("")) {
-			flag = true;
-		}
-		return flag;
-	}
+public class StringUtils extends org.apache.commons.lang3.StringUtils{
 
 	public static String zip(String zipString) {
 		if (isBlank(zipString)) {
@@ -92,7 +58,6 @@ public class StringUtils {
 		String resultString = null;
 		try {
 			resultString = new String(Base64.getDecoder().decode(unZipString.getBytes("UTF-8")));
-//	            compressed = new sun.misc.BASE64Decoder().decodeBuffer(resultString);
 			in = new ByteArrayInputStream(compressed);
 			ginzip = new GZIPInputStream(in);
 
